@@ -7,5 +7,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include('movies_api.urls')),
+    url(r'^movies/', include('moviestash.urls')),
 )
