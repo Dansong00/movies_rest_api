@@ -7,6 +7,7 @@ class Movie(models.Model):
 	director = models.CharField(max_length=100, default='')
 	producer = models.CharField(max_length=100, default='')
 	genre = models.CharField(max_length=100, default='')
+	owner = models.ForeignKey('auth.User', related_name='movies', default='')
 
 	class Meta:
 		ordering = ('title',)

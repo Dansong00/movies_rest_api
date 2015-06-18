@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'moviestash',
     'south',
     'rest_framework',
+    'social.apps.django_app.default',
+    'oauth2_provider',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,10 +48,28 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-  #  'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+REST_FRAMEWORK ={ 'DEFAULT_AUTHENTICATION_CLASSES': 
+                    ('oauth2_provider.ext.rest_framework.OAuth2Authentication',)
+}
+
+OAUTH2_PROVIDER = {
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
+}
+
+SOCIAL_AUTH_FACEBOOK_KEY = '1441897419449707'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'cc4a1198f860fe8fd50be58706301ddb'
+
 
 ROOT_URLCONF = 'movies_api.urls'
 
