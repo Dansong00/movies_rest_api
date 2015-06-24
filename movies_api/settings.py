@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'moviestash',
-    'south',
+   # 'south',
     'rest_framework',
     'social.apps.django_app.default',
     'oauth2_provider',
