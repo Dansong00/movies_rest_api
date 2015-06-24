@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^movies/', include('moviestash.urls')),
     url(r'^signin/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    url(r'^users/', include('users.urls')),
 )
 
 admin.autodiscover()
